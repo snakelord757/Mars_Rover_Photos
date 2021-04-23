@@ -36,7 +36,7 @@ android {
 dependencies {
 
     def lifecycle_version = "2.3.1"
-    
+
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
