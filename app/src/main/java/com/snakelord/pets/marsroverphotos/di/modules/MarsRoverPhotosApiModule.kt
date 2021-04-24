@@ -8,5 +8,5 @@ import dagger.Module
 @Module
 interface MarsRoverPhotosApiModule {
     @Binds
-    fun bindMarsRoverApi(marsRoverPhotosApiImpl: MarsRoverPhotosApiImpl): MarsRoverPhotosApi
+    fun bindMarsRoverPhotosApi(marsRoverPhotosApiImpl: MarsRoverPhotosApiImpl): MarsRoverPhotosApi
 }
