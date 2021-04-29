@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun restoreDatePickerDialog(savedInstanceState: Bundle?) {
         savedInstanceState?.let { bundle ->
-            if (bundle.containsKey(IS_STATE_SAVED_KEY)) {
+            if (bundle.containsKey(IS_STATE_SAVED)) {
                 val day = bundle.getInt(DAY_KEY)
                 val month = bundle.getInt(MONTH_KEY)
                 val year = bundle.getInt(YEAR_KEY)
@@ -91,14 +91,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveDatePickerDialogState(outState: Bundle) {
         val datePicker = datePickerDialog!!.datePicker
-        outState.putBoolean(IS_STATE_SAVED_KEY, true)
+        outState.putBoolean(IS_STATE_SAVED, true)
         outState.putInt(DAY_KEY, datePicker.dayOfMonth)
         outState.putInt(MONTH_KEY, datePicker.month)
         outState.putInt(YEAR_KEY, datePicker.year)
     }
 
     companion object {
-        private const val IS_STATE_SAVED_KEY = "is-state-saved"
+        private const val IS_STATE_SAVED = "is-state-saved"
         private const val DAY_KEY = "day"
         private const val MONTH_KEY = "month"
         private const val YEAR_KEY = "year"
