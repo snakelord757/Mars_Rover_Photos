@@ -1,7 +1,7 @@
 package com.snakelord.pets.marsroverphotos.di.components
 
 import com.snakelord.pets.marsroverphotos.di.modules.*
-import com.snakelord.pets.marsroverphotos.presentation.MainActivity
+import com.snakelord.pets.marsroverphotos.presentation.main.MainActivity
 import dagger.Component
 
 @Component(modules = [ViewModelModule::class, MarsRoverPhotosApiModule::class,

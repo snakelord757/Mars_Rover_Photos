@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.snakelord.pets.marsroverphotos.di.ViewModelFactory
 import com.snakelord.pets.marsroverphotos.di.annotations.ViewModelKey
-import com.snakelord.pets.marsroverphotos.presentation.MainViewModel
+import com.snakelord.pets.marsroverphotos.presentation.main.MainViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
