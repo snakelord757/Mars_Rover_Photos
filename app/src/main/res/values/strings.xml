@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mars Rover Photos</string>
+    <string name="empty_photos_list">Rover hasn\'t took a photos this day</string>
 </resources>
