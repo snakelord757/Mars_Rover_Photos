@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showPhotos(photos: Array<Photo>) {
+        binding.usageHint.gone()
         binding.progressBar.gone()
         binding.photosRecyclerView.adapter = PhotosAdapter(photos)
         binding.photosRecyclerView.visible()
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getOnDateSetListener(): OnDateSetListener {
         return OnDateSetListener { _, year, month, dayOfMonth ->
+            binding.usageHint.gone()
             binding.photosRecyclerView.gone()
             binding.progressBar.visible()
             mainViewModel.getPhotosByDate("$year-$month-$dayOfMonth")
@@ -77,6 +79,14 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
     }
 
+    private fun saveDatePickerDialogState(outState: Bundle) {
+        val datePicker = datePickerDialog!!.datePicker
+        outState.putBoolean(IS_STATE_SAVED, true)
+        outState.putInt(DAY_KEY, datePicker.dayOfMonth)
+        outState.putInt(MONTH_KEY, datePicker.month)
+        outState.putInt(YEAR_KEY, datePicker.year)
+    }
+
     private fun restoreDatePickerDialog(savedInstanceState: Bundle?) {
         savedInstanceState?.let { bundle ->
             if (bundle.containsKey(IS_STATE_SAVED)) {
@@ -86,14 +96,6 @@ class MainActivity : AppCompatActivity() {
                 buildDatePickerDialog(year, month, day)
             }
         }
-    }
-
-    private fun saveDatePickerDialogState(outState: Bundle) {
-        val datePicker = datePickerDialog!!.datePicker
-        outState.putBoolean(IS_STATE_SAVED, true)
-        outState.putInt(DAY_KEY, datePicker.dayOfMonth)
-        outState.putInt(MONTH_KEY, datePicker.month)
-        outState.putInt(YEAR_KEY, datePicker.year)
     }
 
     companion object {
