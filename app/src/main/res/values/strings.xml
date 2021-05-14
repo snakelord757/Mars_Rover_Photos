@@ -2,4 +2,6 @@
     <string name="app_name">Mars Rover Photos</string>
     <string name="empty_photos_list">Rover hasn\'t took a photos this day</string>
     <string name="usage_hint">Select day to see photos from Curiosity Mars rover</string>
+    <string name="photo_image_view_content_description">ImageView which contains photo</string>
+    <string name="calendar_fab_content_description">Fab which open DatePicker Dialog</string>
 </resources>
