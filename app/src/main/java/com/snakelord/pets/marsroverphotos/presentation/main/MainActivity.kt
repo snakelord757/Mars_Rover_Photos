@@ -12,7 +12,6 @@ import com.snakelord.pets.marsroverphotos.di.components.DaggerMainComponent
 import com.snakelord.pets.marsroverphotos.presentation.extensions.gone
 import com.snakelord.pets.marsroverphotos.presentation.extensions.visible
 import com.snakelord.pets.marsroverphotos.presentation.main.adapter.PhotosAdapter
-import com.snakelord.pets.marsroverphotos.presentation.utils.DateFormatter
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         return OnDateSetListener { _, year, month, dayOfMonth ->
             binding.photosRecyclerView.gone()
             binding.progressBar.visible()
-            mainViewModel.getPhotosByDate(DateFormatter.formatDate(dayOfMonth, month, year))
+            mainViewModel.getPhotosByDate("$year-$month-$dayOfMonth")
         }
     }
 
