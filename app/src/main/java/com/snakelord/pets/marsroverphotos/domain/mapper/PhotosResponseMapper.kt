@@ -3,6 +3,7 @@ package com.snakelord.pets.marsroverphotos.domain.mapper
 import com.snakelord.pets.marsroverphotos.data.model.Camera
 import com.snakelord.pets.marsroverphotos.data.model.Photo
 import com.snakelord.pets.marsroverphotos.data.model.Rover
+import com.snakelord.pets.marsroverphotos.domain.extensions.isEmpty
 import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONObject
@@ -11,9 +12,9 @@ import javax.inject.Inject
 class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>{
 
     override fun map(input: Response): Array<Photo> {
-        val responseJson = input.body!!.string()
-        if (!JSONObject(responseJson).has(JSON_ARRAY_NAME))
+        if (input.isEmpty())
             return emptyArray()
+        val responseJson = input.body!!.string()
         val jsonArray = JSONObject(responseJson).getJSONArray(JSON_ARRAY_NAME)
         return getPhotosArray(jsonArray)
     }
