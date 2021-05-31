@@ -22,18 +22,12 @@ class MarsRoverPhotosApiImpl @Inject constructor(private val okHttpClient: OkHtt
         .build()
 
     override suspend fun getPhotosByDate(formattedDate: String): Response {
-        return getResponse(buildRequest(EARTH_DATE_PARAMETER, formattedDate))
-    }
-
-    override suspend fun getPhotosFromCamera(camera: String): Response {
-        return getResponse(buildRequest(CAMERA_PARAMETER, camera))
-    }
-
-    private fun <T> buildRequest(parameterName: String, parameterValue: T): Request {
-        return Request.Builder()
-            .url(baseURL.addQueryParameter(parameterName, parameterValue))
+        val request = Request.Builder()
+            .url(baseURL.addQueryParameter(EARTH_DATE_PARAMETER, formattedDate))
             .build()
+        return getResponse(request)
     }
+
 
     private fun getResponse(request: Request): Response {
         return okHttpClient
@@ -50,7 +44,6 @@ class MarsRoverPhotosApiImpl @Inject constructor(private val okHttpClient: OkHtt
         private const val URL_ROVERS_PATH = "rovers"
         private const val URL_GENERATION_PATH = "curiosity"
         private const val URL_ROVER_PHOTOS = "photos"
-        private const val CAMERA_PARAMETER = "camera"
         private const val EARTH_DATE_PARAMETER = "earth_date"
     }
 
