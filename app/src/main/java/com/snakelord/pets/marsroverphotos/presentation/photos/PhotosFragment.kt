@@ -16,7 +16,7 @@ import com.snakelord.pets.marsroverphotos.databinding.FragmentPhotosBinding
 import com.snakelord.pets.marsroverphotos.di.components.DaggerPhotosComponent
 import com.snakelord.pets.marsroverphotos.presentation.extensions.gone
 import com.snakelord.pets.marsroverphotos.presentation.extensions.visible
-import com.snakelord.pets.marsroverphotos.presentation.main.adapter.PhotosAdapter
+import com.snakelord.pets.marsroverphotos.presentation.photos.adapter.PhotosAdapter
 import com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetails.Companion.PHOTO_ARG
 import java.util.Calendar
 import javax.inject.Inject

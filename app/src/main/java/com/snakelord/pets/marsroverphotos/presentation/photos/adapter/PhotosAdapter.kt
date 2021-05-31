@@ -1,4 +1,4 @@
-package com.snakelord.pets.marsroverphotos.presentation.main.adapter
+package com.snakelord.pets.marsroverphotos.presentation.photos.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.snakelord.pets.marsroverphotos.R
 import com.snakelord.pets.marsroverphotos.data.model.Photo
-import com.snakelord.pets.marsroverphotos.presentation.main.adapter.viewholder.EmptyListViewHolder
-import com.snakelord.pets.marsroverphotos.presentation.main.adapter.viewholder.PhotoViewHolder
+import com.snakelord.pets.marsroverphotos.presentation.photos.adapter.viewholder.EmptyListViewHolder
+import com.snakelord.pets.marsroverphotos.presentation.photos.adapter.viewholder.PhotoViewHolder
 
 class PhotosAdapter(
     private val photos: Array<Photo>,

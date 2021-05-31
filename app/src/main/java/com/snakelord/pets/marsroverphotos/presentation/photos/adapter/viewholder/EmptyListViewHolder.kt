@@ -1,4 +1,4 @@
-package com.snakelord.pets.marsroverphotos.presentation.main.adapter.viewholder
+package com.snakelord.pets.marsroverphotos.presentation.photos.adapter.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
