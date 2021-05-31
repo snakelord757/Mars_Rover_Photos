@@ -29,6 +29,7 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
     private fun photoFromJson(photoObject: JSONObject): Photo =
         Photo().apply {
             photoLink = photoObject.getString(IMG_SRC)
+            photoMartianSol = photoObject.getInt(SOL)
             earthDate = photoObject.getString(EARTH_DATE)
             fromCamera = getCameraInfo(photoObject.getJSONObject(CAMERA))
             fromRover = getRoverInfo(photoObject.getJSONObject(ROVER))
@@ -59,5 +60,6 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
         private const val ROVER_LAUNCH_DATE = "launch_date"
         private const val ROVER_LANDING_DATE = "landing_date"
         private const val ROVER_STATUS = "status"
+        private const val SOL = "sol"
     }
 }

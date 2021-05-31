@@ -45,6 +45,15 @@
             app:layout_constraintTop_toBottomOf="@id/fromCamera"
             layout="@layout/photo_property_layout"/>
 
+        <include
+            android:id="@+id/martianSol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fromRover"
+            layout="@layout/photo_property_layout"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

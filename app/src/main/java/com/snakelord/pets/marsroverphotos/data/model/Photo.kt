@@ -5,6 +5,7 @@ import java.io.Serializable
 
 class Photo : Serializable {
     var photoLink: String = String.EMPTY
+    var photoMartianSol: Int = 0
     var earthDate: String = String.EMPTY
     var fromCamera: Camera = Camera()
     var fromRover: Rover = Rover()

@@ -34,6 +34,7 @@ class PhotoDetails : Fragment() {
         binding.earthDate.propertyName.text = getString(R.string.date)
         binding.fromCamera.propertyName.text = getString(R.string.from_camera)
         binding.fromRover.propertyName.text = getString(R.string.from_rover)
+        binding.martianSol.propertyName.text = getString(R.string.martian_sol)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -58,6 +59,7 @@ class PhotoDetails : Fragment() {
             photo!!.fromRover.roverName,
             photo!!.fromRover.roverStatus
         )
+        binding.martianSol.propertyValue.text = photo!!.photoMartianSol.toString()
     }
 
     companion object {
