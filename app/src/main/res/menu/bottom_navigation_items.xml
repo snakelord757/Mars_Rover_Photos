@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/photosFragment"
+        android:icon="@drawable/ic_photo"
+        android:title="@string/photos" />
+
+    <item
+        android:id="@+id/aboutRovers"
+        android:icon="@drawable/ic_rovers"
+        android:title="@string/rovers" />
+
+</menu>

@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class MapperModule {
+class PhotosMapperModule {
     @Provides
     fun bindPhotosResponseMapper(): PhotosResponseMapper = PhotosResponseMapper()
 }

@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-interface InteractorModule {
+interface PhotosInteractorModule {
     @Binds
     fun bindPhotosInteractor(photosInteractorImpl: PhotosInteractorImpl): PhotosInteractor
 }

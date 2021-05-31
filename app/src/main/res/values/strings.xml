@@ -4,4 +4,6 @@
     <string name="usage_hint">Select day to see photos from Curiosity Mars rover</string>
     <string name="photo_image_view_content_description">ImageView which contains photo</string>
     <string name="calendar_fab_content_description">Fab which open DatePicker Dialog</string>
+    <string name="photos">Photos</string>
+    <string name="rovers">Rovers</string>
 </resources>

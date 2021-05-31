@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-interface RepositoryModule {
+interface PhotosRepositoryModule {
     @Binds
     fun bindPhotosRepository(photosRepositoryImpl: PhotosRepositoryImpl): PhotosRepository
 }
