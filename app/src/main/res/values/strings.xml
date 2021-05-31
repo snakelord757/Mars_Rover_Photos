@@ -6,4 +6,9 @@
     <string name="calendar_fab_content_description">Fab which open DatePicker Dialog</string>
     <string name="photos">Photos</string>
     <string name="rovers">Rovers</string>
+    <string name="about_placeholder">%1$s (%2$s)</string>
+    <string name="photo_content_description">This ImageView contains single photo from list</string>
+    <string name="date">Date:  </string>
+    <string name="from_camera">From camera:  </string>
+    <string name="from_rover">From rover:  </string>
 </resources>

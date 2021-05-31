@@ -7,5 +7,25 @@
     <fragment
         android:id="@+id/photosFragment"
         android:name="com.snakelord.pets.marsroverphotos.presentation.photos.PhotosFragment"
-        android:label="PhotosFragment" />
+        android:label="PhotosFragment">
+
+        <action
+            android:id="@+id/to_photo_details"
+            app:destination="@id/photoDetails"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoDetails"
+        android:name="com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetails"
+        android:label="PhotoDetails">
+
+        <argument
+            android:name="Photo"
+            app:argType="com.snakelord.pets.marsroverphotos.data.model.Photo" />
+
+    </fragment>
+
 </navigation>

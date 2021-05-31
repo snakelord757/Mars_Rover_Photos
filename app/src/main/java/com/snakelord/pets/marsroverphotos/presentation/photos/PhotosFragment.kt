@@ -8,13 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.snakelord.pets.marsroverphotos.R
 import com.snakelord.pets.marsroverphotos.data.model.Photo
 import com.snakelord.pets.marsroverphotos.databinding.FragmentPhotosBinding
 import com.snakelord.pets.marsroverphotos.di.components.DaggerPhotosComponent
 import com.snakelord.pets.marsroverphotos.presentation.extensions.gone
 import com.snakelord.pets.marsroverphotos.presentation.extensions.visible
 import com.snakelord.pets.marsroverphotos.presentation.main.adapter.PhotosAdapter
+import com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetails.Companion.PHOTO_ARG
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -49,10 +52,16 @@ class PhotosFragment : Fragment() {
            .inject(this)
     }
 
+    private val onPhotoClickListener: (Photo) -> Unit = {
+        val args = Bundle()
+        args.putSerializable(PHOTO_ARG, it)
+        findNavController().navigate(R.id.to_photo_details, args)
+    }
+
     private fun showPhotos(photos: Array<Photo>) {
         binding.usageHint.gone()
         binding.progressBar.gone()
-        binding.photosRecyclerView.adapter = PhotosAdapter(photos)
+        binding.photosRecyclerView.adapter = PhotosAdapter(photos, onPhotoClickListener)
         binding.photosRecyclerView.visible()
     }
 

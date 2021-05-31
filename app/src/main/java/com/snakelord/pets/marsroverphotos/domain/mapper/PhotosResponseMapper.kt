@@ -27,12 +27,12 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
     }
 
     private fun photoFromJson(photoObject: JSONObject): Photo =
-        Photo(
-            photoLink = photoObject.getString(IMG_SRC),
-            earthDate = EARTH_DATE,
-            fromCamera = getCameraInfo(photoObject.getJSONObject(CAMERA)),
-            fromRover = getRoverInfo(photoObject.getJSONObject(ROVER)),
-        )
+        Photo().apply {
+            photoLink = photoObject.getString(IMG_SRC)
+            earthDate = photoObject.getString(EARTH_DATE)
+            fromCamera = getCameraInfo(photoObject.getJSONObject(CAMERA))
+            fromRover = getRoverInfo(photoObject.getJSONObject(ROVER))
+        }
 
     private fun getCameraInfo(cameraObject: JSONObject): Camera =
         Camera(
