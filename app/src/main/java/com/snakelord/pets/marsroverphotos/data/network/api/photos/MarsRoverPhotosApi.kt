@@ -1,4 +1,4 @@
-package com.snakelord.pets.marsroverphotos.data.network
+package com.snakelord.pets.marsroverphotos.data.network.api.photos
 
 import okhttp3.Response
 
