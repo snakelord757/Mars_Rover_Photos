@@ -11,15 +11,15 @@
 
         <action
             android:id="@+id/to_photo_details"
-            app:destination="@id/photoDetails"
+            app:destination="@id/photoDetailsFragment"
             app:enterAnim="@anim/fragment_open_enter"
             app:popExitAnim="@anim/fragment_open_exit" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/photoDetails"
-        android:name="com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetails"
+        android:id="@+id/photoDetailsFragment"
+        android:name="com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetailsFragment"
         android:label="PhotoDetails">
 
         <argument

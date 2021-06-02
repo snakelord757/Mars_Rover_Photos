@@ -1,7 +1,6 @@
 package com.snakelord.pets.marsroverphotos.presentation.photos
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import com.snakelord.pets.marsroverphotos.databinding.FragmentPhotoDetailsBindin
 import com.snakelord.pets.marsroverphotos.domain.extensions.parseDate
 import com.squareup.picasso.Picasso
 
-class PhotoDetails : Fragment() {
+class PhotoDetailsFragment : Fragment() {
 
     private var photoDetailsBinding: FragmentPhotoDetailsBinding? = null
     private var photo: Photo? = null

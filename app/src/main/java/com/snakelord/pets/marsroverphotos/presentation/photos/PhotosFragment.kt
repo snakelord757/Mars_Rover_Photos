@@ -2,6 +2,7 @@ package com.snakelord.pets.marsroverphotos.presentation.photos
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.snakelord.pets.marsroverphotos.R
 import com.snakelord.pets.marsroverphotos.data.model.Photo
@@ -16,8 +18,8 @@ import com.snakelord.pets.marsroverphotos.databinding.FragmentPhotosBinding
 import com.snakelord.pets.marsroverphotos.di.components.DaggerPhotosComponent
 import com.snakelord.pets.marsroverphotos.presentation.extensions.gone
 import com.snakelord.pets.marsroverphotos.presentation.extensions.visible
+import com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetailsFragment.Companion.PHOTO_ARG
 import com.snakelord.pets.marsroverphotos.presentation.photos.adapter.PhotosAdapter
-import com.snakelord.pets.marsroverphotos.presentation.photos.PhotoDetails.Companion.PHOTO_ARG
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -26,7 +28,14 @@ class PhotosFragment : Fragment() {
     @Inject lateinit var factory: ViewModelProvider.Factory
     private var datePickerDialog: DatePickerDialog? = null
     private lateinit var binding: FragmentPhotosBinding
-    private lateinit var photosViewModel: PhotosViewModel
+    private val photosViewModel: PhotosViewModel by navGraphViewModels(R.id.navigation_graph) { factory }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        DaggerPhotosComponent.builder()
+            .build()
+            .inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,18 +47,10 @@ class PhotosFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        injectDependencies()
         restoreDatePickerDialog(savedInstanceState)
-        photosViewModel = ViewModelProvider(this, factory)[PhotosViewModel::class.java]
         photosViewModel.photos.observe(viewLifecycleOwner, ::showPhotos)
         binding.calendarFab.setOnClickListener { showDatePickerDialog() }
         binding.photosRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-    }
-
-    private fun injectDependencies() {
-       DaggerPhotosComponent.builder()
-           .build()
-           .inject(this)
     }
 
     private val onPhotoClickListener: (Photo) -> Unit = {

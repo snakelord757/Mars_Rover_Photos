@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.snakelord.pets.marsroverphotos.data.model.Photo
-import com.snakelord.pets.marsroverphotos.domain.interactor.PhotosInteractor
+import com.snakelord.pets.marsroverphotos.domain.interactor.photos.PhotosInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
