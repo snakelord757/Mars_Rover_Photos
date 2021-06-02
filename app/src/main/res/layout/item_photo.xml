@@ -23,7 +23,7 @@
             android:id="@+id/roverName"
             android:textStyle="bold"
             android:textSize="@dimen/camera_name_text_size"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/primary_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"

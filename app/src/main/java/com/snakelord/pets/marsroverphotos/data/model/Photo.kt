@@ -8,5 +8,5 @@ class Photo : Serializable {
     var photoMartianSol: Int = 0
     var earthDate: String = String.EMPTY
     var fromCamera: Camera = Camera()
-    var fromRover: Rover = Rover()
+    var fromRoverMinimal: RoverMinimal = RoverMinimal()
 }

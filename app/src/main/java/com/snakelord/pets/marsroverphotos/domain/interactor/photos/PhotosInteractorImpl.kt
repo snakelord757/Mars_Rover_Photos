@@ -1,4 +1,4 @@
-package com.snakelord.pets.marsroverphotos.domain.interactor
+package com.snakelord.pets.marsroverphotos.domain.interactor.photos
 
 import com.snakelord.pets.marsroverphotos.data.model.Photo
 import com.snakelord.pets.marsroverphotos.data.repositories.PhotosRepository

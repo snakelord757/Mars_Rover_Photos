@@ -1,15 +1,15 @@
-package com.snakelord.pets.marsroverphotos.domain.mapper
+package com.snakelord.pets.marsroverphotos.data.mapper
 
 import com.snakelord.pets.marsroverphotos.data.model.Camera
 import com.snakelord.pets.marsroverphotos.data.model.Photo
-import com.snakelord.pets.marsroverphotos.data.model.Rover
+import com.snakelord.pets.marsroverphotos.data.model.RoverMinimal
 import com.snakelord.pets.marsroverphotos.domain.extensions.isEmpty
 import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONObject
 import javax.inject.Inject
 
-class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>{
+class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>> {
 
     override fun map(input: Response): Array<Photo> {
         if (input.isEmpty())
@@ -32,20 +32,18 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
             photoMartianSol = photoObject.getInt(SOL)
             earthDate = photoObject.getString(EARTH_DATE)
             fromCamera = getCameraInfo(photoObject.getJSONObject(CAMERA))
-            fromRover = getRoverInfo(photoObject.getJSONObject(ROVER))
+            fromRoverMinimal = getRoverInfo(photoObject.getJSONObject(ROVER))
         }
 
     private fun getCameraInfo(cameraObject: JSONObject): Camera =
         Camera(
             cameraName = cameraObject.getString(NAME),
-            fullCameraName = cameraObject.getString(FULL_CAMERA__NAME)
+            fullCameraName = cameraObject.getString(FULL_CAMERA_NAME)
         )
 
-    private fun getRoverInfo(roverObject: JSONObject): Rover =
-        Rover(
+    private fun getRoverInfo(roverObject: JSONObject): RoverMinimal =
+        RoverMinimal(
             roverName = roverObject.getString(NAME),
-            roverLaunchDate = roverObject.getString(ROVER_LAUNCH_DATE),
-            roverLandingDate = roverObject.getString(ROVER_LANDING_DATE),
             roverStatus = roverObject.getString(ROVER_STATUS)
         )
 
@@ -54,11 +52,9 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
         private const val IMG_SRC = "img_src"
         private const val EARTH_DATE = "earth_date"
         private const val NAME = "name"
-        private const val FULL_CAMERA__NAME = "full_name"
+        private const val FULL_CAMERA_NAME = "full_name"
         private const val CAMERA = "camera"
         private const val ROVER = "rover"
-        private const val ROVER_LAUNCH_DATE = "launch_date"
-        private const val ROVER_LANDING_DATE = "landing_date"
         private const val ROVER_STATUS = "status"
         private const val SOL = "sol"
     }

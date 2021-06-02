@@ -12,4 +12,14 @@
     <string name="from_camera">From camera:</string>
     <string name="from_rover">From rover:</string>
     <string name="martian_sol">Martian day:</string>
+    <string name="curiosity">Curiosity</string>
+    <string name="opportunity">Opportunity</string>
+    <string name="spirit">Spirit</string>
+    <string name="launching_date">Launching date:</string>
+    <string name="landing_date">Landing date:</string>
+    <string name="status">Status</string>
+    <string name="martian_days">Martian days:</string>
+    <string name="last_photo_date">Last photo date:</string>
+    <string name="total_photos">Total photos:</string>
+    <string name="cameras">Cameras</string>
 </resources>

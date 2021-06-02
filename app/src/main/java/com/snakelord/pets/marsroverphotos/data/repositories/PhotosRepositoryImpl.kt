@@ -1,8 +1,8 @@
 package com.snakelord.pets.marsroverphotos.data.repositories
 
 import com.snakelord.pets.marsroverphotos.data.model.Photo
-import com.snakelord.pets.marsroverphotos.data.network.MarsRoverPhotosApi
-import com.snakelord.pets.marsroverphotos.domain.mapper.PhotosResponseMapper
+import com.snakelord.pets.marsroverphotos.data.network.api.photos.MarsRoverPhotosApi
+import com.snakelord.pets.marsroverphotos.data.mapper.PhotosResponseMapper
 import javax.inject.Inject
 
 class PhotosRepositoryImpl @Inject constructor(

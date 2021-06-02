@@ -7,7 +7,7 @@
         android:title="@string/photos" />
 
     <item
-        android:id="@+id/aboutRovers"
+        android:id="@+id/roversFragment"
         android:icon="@drawable/ic_rovers"
         android:title="@string/rovers" />
 

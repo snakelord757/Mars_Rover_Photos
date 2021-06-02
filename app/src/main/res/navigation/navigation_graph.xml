@@ -28,4 +28,9 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/roversFragment"
+        android:name="com.snakelord.pets.marsroverphotos.presentation.rovers.RoversFragment"
+        android:label="RoversFragment" />
+
 </navigation>

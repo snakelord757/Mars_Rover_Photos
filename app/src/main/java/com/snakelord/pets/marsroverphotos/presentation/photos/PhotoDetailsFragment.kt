@@ -55,8 +55,8 @@ class PhotoDetailsFragment : Fragment() {
         )
         binding.fromRover.propertyValue.text = getString(
             R.string.about_placeholder,
-            photo!!.fromRover.roverName,
-            photo!!.fromRover.roverStatus
+            photo!!.fromRoverMinimal.roverName,
+            photo!!.fromRoverMinimal.roverStatus
         )
         binding.martianSol.propertyValue.text = photo!!.photoMartianSol.toString()
     }
