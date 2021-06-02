@@ -1,4 +1,4 @@
-package com.snakelord.pets.marsroverphotos.di.modules.photos
+package com.snakelord.pets.marsroverphotos.di.modules
 
 import androidx.lifecycle.ViewModelProvider
 import com.snakelord.pets.marsroverphotos.di.ViewModelFactory
