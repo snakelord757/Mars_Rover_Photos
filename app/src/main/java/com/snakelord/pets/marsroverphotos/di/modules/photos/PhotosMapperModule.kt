@@ -1,6 +1,6 @@
-package com.snakelord.pets.marsroverphotos.di.modules
+package com.snakelord.pets.marsroverphotos.di.modules.photos
 
-import com.snakelord.pets.marsroverphotos.domain.mapper.PhotosResponseMapper
+import com.snakelord.pets.marsroverphotos.data.mapper.PhotosResponseMapper
 import dagger.Module
 import dagger.Provides
 
