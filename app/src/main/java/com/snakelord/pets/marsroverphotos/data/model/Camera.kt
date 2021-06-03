@@ -1,8 +1,9 @@
 package com.snakelord.pets.marsroverphotos.data.model
 
 import com.snakelord.pets.marsroverphotos.domain.extensions.EMPTY
+import java.io.Serializable
 
-data class Camera(
-    val cameraName: String = String.EMPTY,
-    val fullCameraName: String = String.EMPTY
-)
+class Camera : Serializable {
+    var cameraName: String = String.EMPTY
+    var fullCameraName: String = String.EMPTY
+}

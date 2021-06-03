@@ -7,7 +7,7 @@ import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONObject
 
-class RoversResponseMapper: Mapper<Response, Rover> {
+class RoversResponseMapper : Mapper<Response, Rover> {
     override fun map(input: Response): Rover {
         if (input.isEmpty())
             return Rover()
@@ -36,10 +36,10 @@ class RoversResponseMapper: Mapper<Response, Rover> {
     }
 
     private fun getCamera(cameraObject: JSONObject) =
-        Camera(
-            cameraName = cameraObject.getString(NAME),
+        Camera().apply {
+            cameraName = cameraObject.getString(NAME)
             fullCameraName = cameraObject.getString(FULL_CAMERA_NAME)
-        )
+        }
 
     companion object {
         private const val PARENT_JSON_OBJECT = "rover"

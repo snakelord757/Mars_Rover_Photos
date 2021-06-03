@@ -36,16 +36,17 @@ class PhotosResponseMapper @Inject constructor(): Mapper<Response, Array<Photo>>
         }
 
     private fun getCameraInfo(cameraObject: JSONObject): Camera =
-        Camera(
-            cameraName = cameraObject.getString(NAME),
+        Camera().apply {
+            cameraName = cameraObject.getString(NAME)
             fullCameraName = cameraObject.getString(FULL_CAMERA_NAME)
-        )
+        }
+
 
     private fun getRoverInfo(roverObject: JSONObject): RoverMinimal =
-        RoverMinimal(
-            roverName = roverObject.getString(NAME),
+        RoverMinimal().apply {
+            roverName = roverObject.getString(NAME)
             roverStatus = roverObject.getString(ROVER_STATUS)
-        )
+        }
 
     companion object {
         private const val JSON_ARRAY_NAME = "photos"
