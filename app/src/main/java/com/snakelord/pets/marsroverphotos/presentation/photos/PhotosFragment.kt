@@ -86,7 +86,7 @@ class PhotosFragment : Fragment() {
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val month = calendar.get(Calendar.MONTH) + 1
+        val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
         buildDatePickerDialog(year, month, day)
     }
@@ -103,7 +103,7 @@ class PhotosFragment : Fragment() {
             binding.usageHint.gone()
             binding.photosRecyclerView.gone()
             binding.progressBar.visible()
-            photosViewModel.getPhotosByDate("$year-$month-$dayOfMonth")
+            photosViewModel.getPhotosByDate("$year-${month + 1}-$dayOfMonth")
         }
     }
 
