@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,6 +15,7 @@ import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.snakelord.pets.marsroverphotos.R
 import com.snakelord.pets.marsroverphotos.data.model.Photo
+import com.snakelord.pets.marsroverphotos.data.network.model.State
 import com.snakelord.pets.marsroverphotos.databinding.FragmentPhotosBinding
 import com.snakelord.pets.marsroverphotos.di.components.DaggerPhotosComponent
 import com.snakelord.pets.marsroverphotos.presentation.extensions.gone
@@ -48,9 +50,16 @@ class PhotosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         restoreDatePickerDialog(savedInstanceState)
-        photosViewModel.photos.observe(viewLifecycleOwner, ::showPhotos)
+        photosViewModel.photos.observe(viewLifecycleOwner, ::getResponse)
         binding.calendarFab.setOnClickListener { showDatePickerDialog() }
         binding.photosRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    private fun getResponse(response: State<Array<Photo>>) {
+        if (response is State.Success)
+            showPhotos(response.data)
+        else
+            showErrorMessage((response as State.Error).errorMessage)
     }
 
     private val onPhotoClickListener: (Photo) -> Unit = {
@@ -62,8 +71,16 @@ class PhotosFragment : Fragment() {
     private fun showPhotos(photos: Array<Photo>) {
         binding.usageHint.gone()
         binding.progressBar.gone()
+        binding.errorMessage.gone()
         binding.photosRecyclerView.adapter = PhotosAdapter(photos, onPhotoClickListener)
         binding.photosRecyclerView.visible()
+    }
+
+    private fun showErrorMessage(reason: String) {
+        binding.usageHint.gone()
+        binding.progressBar.gone()
+        binding.errorMessage.text = reason
+        binding.errorMessage.visible()
     }
 
     private fun showDatePickerDialog() {

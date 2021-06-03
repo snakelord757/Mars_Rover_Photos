@@ -11,6 +11,7 @@ import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.snakelord.pets.marsroverphotos.R
 import com.snakelord.pets.marsroverphotos.data.model.Rover
+import com.snakelord.pets.marsroverphotos.data.network.model.State
 import com.snakelord.pets.marsroverphotos.databinding.FragmentRoversBinding
 import com.snakelord.pets.marsroverphotos.di.components.DaggerRoversComponent
 import com.snakelord.pets.marsroverphotos.domain.extensions.parseDate
@@ -40,7 +41,7 @@ class RoversFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         roversFragmentBinding = FragmentRoversBinding.inflate(inflater, container, false)
-        roversViewModel.rover.observe(viewLifecycleOwner, ::onRoverInfoLoaded)
+        roversViewModel.rover.observe(viewLifecycleOwner, ::getResponse)
         return binding.root
     }
 
@@ -61,7 +62,14 @@ class RoversFragment: Fragment() {
     private fun makeRequest(roverName: String) {
         roversViewModel.getInfoAbout(roverName)
         binding.progressCircular.gone()
-        binding.roverInfo.visible()
+        binding.roverInfo.gone()
+    }
+
+    private fun getResponse(response: State<Rover>) {
+        if (response is State.Success)
+            onRoverInfoLoaded(response.data)
+        else
+            showErrorMessage((response as State.Error).errorMessage)
     }
 
     private fun onRoverInfoLoaded(rover: Rover) {
@@ -79,6 +87,13 @@ class RoversFragment: Fragment() {
             adapter = camerasAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
+    }
+
+    private fun showErrorMessage(reason: String) {
+        binding.progressCircular.gone()
+        binding.roverInfo.gone()
+        binding.errorMessage.text = reason
+        binding.errorMessage.visible()
     }
 
     companion object {
