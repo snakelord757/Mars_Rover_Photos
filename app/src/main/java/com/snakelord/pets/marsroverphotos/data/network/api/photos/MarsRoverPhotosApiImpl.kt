@@ -3,7 +3,6 @@ package com.snakelord.pets.marsroverphotos.data.network.api.photos
 import com.snakelord.pets.marsroverphotos.data.mapper.PhotosResponseMapper
 import com.snakelord.pets.marsroverphotos.data.model.Photo
 import com.snakelord.pets.marsroverphotos.data.network.ApiBaseUrl
-import com.snakelord.pets.marsroverphotos.data.network.callback.OnResultListener
 import com.snakelord.pets.marsroverphotos.data.network.extensions.addQueryParameter
 import com.snakelord.pets.marsroverphotos.data.network.model.State
 import okhttp3.*
