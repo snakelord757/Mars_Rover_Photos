@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/curiosity"
-            android:textSize="20sp" />
+            android:textSize="@dimen/rover_name_text_size" />
 
         <TextView
             android:id="@+id/opportunity"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/opportunity"
-            android:textSize="20sp" />
+            android:textSize="@dimen/rover_name_text_size" />
 
         <TextView
             android:id="@+id/spirit"
@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/spirit"
-            android:textSize="20sp" />
+            android:textSize="@dimen/rover_name_text_size" />
 
     </LinearLayout>
 
@@ -72,7 +72,7 @@
             android:id="@+id/roverInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="@dimen/rover_info_horizontal_margin"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/names_container">
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/rover_titles_text_size"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Curiosity" />
@@ -148,7 +148,7 @@
                 android:layout_marginTop="@dimen/default_margin"
                 android:text="@string/cameras"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/rover_titles_text_size"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/totalPhotos" />
 
