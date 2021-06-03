@@ -54,7 +54,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_calendar"
-        app:tint="@color/white"
-        app:fabSize="normal"/>
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

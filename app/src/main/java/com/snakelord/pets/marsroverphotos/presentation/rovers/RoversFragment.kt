@@ -62,6 +62,7 @@ class RoversFragment: Fragment() {
     private fun makeRequest(roverName: String) {
         roversViewModel.getInfoAbout(roverName)
         binding.progressCircular.gone()
+        binding.errorMessage.gone()
         binding.roverInfo.gone()
     }
 

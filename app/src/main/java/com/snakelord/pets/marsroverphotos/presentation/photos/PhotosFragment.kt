@@ -99,6 +99,7 @@ class PhotosFragment : Fragment() {
 
     private fun getOnDateSetListener(): OnDateSetListener {
         return OnDateSetListener { _, year, month, dayOfMonth ->
+            binding.errorMessage.gone()
             binding.usageHint.gone()
             binding.photosRecyclerView.gone()
             binding.progressBar.visible()
