@@ -20,9 +20,10 @@ import com.snakelord.pets.marsroverphotos.presentation.extensions.visible
 import com.snakelord.pets.marsroverphotos.presentation.rovers.adapter.CamerasAdapter
 import javax.inject.Inject
 
-class RoversFragment: Fragment() {
+class RoversFragment : Fragment() {
 
-    @Inject lateinit var factory: ViewModelProvider.Factory
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
     private var roversFragmentBinding: FragmentRoversBinding? = null
     private val binding
         get() = roversFragmentBinding!!
@@ -53,14 +54,14 @@ class RoversFragment: Fragment() {
         binding.sol.propertyName.text = getString(R.string.martian_days)
         binding.lastPhotoDate.propertyName.text = getString(R.string.last_photo_date)
         binding.totalPhotos.propertyName.text = getString(R.string.total_photos)
-        binding.curiosity.setOnClickListener { makeRequest(CURIOSITY) }
-        binding.opportunity.setOnClickListener { makeRequest(OPPORTUNITY) }
-        binding.spirit.setOnClickListener { makeRequest(SPIRIT) }
-        roversViewModel.getInfoAbout(CURIOSITY)
+        binding.curiosity.setOnClickListener { makeRequest(Rovers.CURIOSITY) }
+        binding.opportunity.setOnClickListener { makeRequest(Rovers.OPPORTUNITY) }
+        binding.spirit.setOnClickListener { makeRequest(Rovers.SPIRIT) }
+        roversViewModel.getInfoAbout(Rovers.CURIOSITY.roverName)
     }
 
-    private fun makeRequest(roverName: String) {
-        roversViewModel.getInfoAbout(roverName)
+    private fun makeRequest(rover: Rovers) {
+        roversViewModel.getInfoAbout(rover.roverName)
         binding.progressCircular.visible()
         binding.errorMessage.gone()
         binding.roverInfo.gone()
@@ -95,11 +96,5 @@ class RoversFragment: Fragment() {
         binding.roverInfo.gone()
         binding.errorMessage.text = reason
         binding.errorMessage.visible()
-    }
-
-    companion object {
-        private const val CURIOSITY = "curiosity"
-        private const val OPPORTUNITY = "opportunity"
-        private const val SPIRIT = "spirit"
     }
 }
